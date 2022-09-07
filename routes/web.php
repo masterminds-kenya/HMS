@@ -26,6 +26,10 @@ Route::get('/admin/',[AdminController::class,'index'])->name("admins");
 
 Route::post('/admin/login',[AdminController::class,'authenticate_admin'])->name("admin_login");
 
+Route::get('nurses',App\Http\Livewire\Admins\Nurses::class)->name('nurses');
+
+Route::get('/docters',App\Http\Livewire\Admins\Docter::class)->name('admin_docters');
+
 Route::middleware(['auth','checksuperadmin'])->group(function () {
 
     Route::prefix('admin')->group(function () {
